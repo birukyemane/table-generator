@@ -4,37 +4,38 @@
 
 let tableGenartor = {  
   renderTable() {
-    let tableStyles = {
-      columns: document.querySelector('#columns').value,
-      rows: document.querySelector('#rows').value, 
-      tableWidth: document.querySelector('#tableWidth').value,
-      borderWidth: document.querySelector('#borderWidth').value,
-      borderColor: document.querySelector('#borderColor').value,
-      tableBackground: document.querySelector('#tableBackground').value,
-      headerBackground: document.querySelector('#headerBackground').value,
-      fontColor: document.querySelector('#fontColor').value,
-    }     
-    document.querySelector('#tableContainer').innerHTML = createTable(tableStyles); 
-    this.setBodyBackground();   
+    let  columns = document.querySelector('#columns').value, rows = document.querySelector('#rows').value;    
+    document.querySelector('#tableContainer').innerHTML = createTable(rows, columns); 
+    this.setStyle('body','background','#bodyBackground','');
+    this.setStyle('table','width','#tableWidth','%');
+    this.setStyle('table','background','#tableBackground','');
+    this.setStyle('tHead','background','#headerBackground','');
+    this.setStyle('tBody','color','#fontColor','');
+    this.setBoder();
+    this.setStyle('tBody','font-family','#fontType','')
   },
-  setBodyBackground(){
-    document.querySelector('body').style.background = document.querySelector('#bodyBackground').value;
+
+  setStyle(element,property,inputElement,measurment){
+    document.querySelector(element).style[property] = document.querySelector(inputElement).value + measurment;
   },
-  setTableWidth(){
-    document.querySelector('table').style.width = document.querySelector('#tableWidth').value + '%';
-  },
+   
   setBoder(){   
-    document.querySelector('table').style.border = document.querySelector('#borderWidth').value + 'px ' + 'solid ' +  document.querySelector('#borderColor').value;
+    let items = document.querySelectorAll('td,th,table');
+    items.forEach( item => {
+      item.style.border = document.querySelector('#borderWidth').value + 'px ' + 'solid ' +  document.querySelector('#borderColor').value;;
+    });
+    document.querySelector('table').style.borderCollapse='collapse';
+    
   },
-  setTableBackground(){
-    document.querySelector('table').style.background = document.querySelector('#tableBackground').value;
-  },
-  populateFontFamily(){
-    const fontFamily = ['Arial','Helvetica','Gill Sans'];
-    document.querySelector('#fontType').innerHTML = fontFamily.map(fontType => {
-      return `<option value="${fontType}">${fontType}</option>`;
+  
+  populateFontFamilies(){
+    const fontFamilies = ['Arial','Helvetica Narrow','Gill Sans','Lucida','Times','Times New Roman','Palatino',
+    'Bookman'  
+  ];
+    document.querySelector('#fontType').innerHTML = fontFamilies.map(fontFamily => {
+      return `<option value="${fontFamily}">${fontFamily}</option>`;
     });
   }
 }
  
-tableGenartor.populateFontFamily(); // populate the the select element with the font types 
+tableGenartor.populateFontFamilies(); // populate the the select element with the font types 

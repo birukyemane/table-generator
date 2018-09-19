@@ -16,21 +16,25 @@
         <label for="columns">Number of columns</label>
         <input id="columns" name="columns" type="number" min="1" value="3"> <br />
         <label for="tableWidth">Table width in percent</label>
-        <input id="tableWidth" name="tableWidth" type="number" min="1" value="60" onchange="tableGenartor.setTableWidth()">
+        <input id="tableWidth" name="tableWidth" type="number" min="1" value="60" onchange="tableGenartor.setStyle('table','width','#tableWidth','%')";
+        ()">
         <label for="borderWidth">Border width in pixels</label>
         <input id="borderWidth" name="borderWidth" type="number" min="1" value="3" onchange="tableGenartor.setBoder()"> <br />
         <label for="tableBackground">Table background color</label>
-        <input id="tableBackground" name="tableBackground" type="color" value="#ffff00" onchange="tableGenartor.setTableBackground()">
+        <input id="tableBackground" name="tableBackground" type="color" value="#ffff00" onchange="tableGenartor.setStyle('table','background','#tableBackground','')";
+        ()">
         <label for="headerBackground">Head background color</label>
-        <input id="headerBackground" name="headerBackground" type="color" value="#0000ff">
+        <input id="headerBackground" name="headerBackground" type="color" value="#0000ff" onchange="tableGenartor.setStyle('tHead','background','#headerBackground','')";
+        ()">
         <label for="bodyBackground">Body background color</label>
-        <input id="bodyBackground" name="bodyBackground" type="color" value="#333333" onchange="tableGenartor.setBodyBackground()"> <br />
+        <input id="bodyBackground" name="bodyBackground" type="color" value="#333333" onchange="tableGenartor.setStyle('body','background','#bodyBackground','')"> <br />
         <label for="borderColor">Border color</label>
         <input id="borderColor" name="borderColor" type="color" value="#ff0000" onchange="tableGenartor.setBoder()"> 
         <label for="fontColor">Font color</label> 
-        <input id="fontColor" name="fontColor" type="color" value="#990099"> <br />
+        <input id="fontColor" name="fontColor" type="color" value="#990099" onchange="tableGenartor.setStyle('tBody','color','#fontColor','')";
+        ()"> <br />
         <label for="fontType">Font type</label>
-        <select id="fontType" name="fontType"></select>
+        <select id="fontType" name="fontType" onchange="tableGenartor.setStyle('tBody','font-family','#fontType','')"></select>
         <select id="fontWeight" name="fontWeight">
                 <option value="volvo">Volvo</option>
                 <option value="saab">Saab</option>
