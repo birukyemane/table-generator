@@ -11,47 +11,52 @@
 <body>
     <div id="inputsHolder">
         <h1>HTML Table generator</h1>
-        <label for="rows">Number of rows</label>
-        <input id="rows" name="rows" type="number" min="1" value="3">
-        <label for="columns">Number of columns</label>
-        <input id="columns" name="columns" type="number" min="1" value="3"> <br />
-        <label for="tableWidth">Table width in percent</label>
-        <input id="tableWidth" name="tableWidth" type="number" min="1" value="60" onchange="tableGenartor.setStyle('table','width','#tableWidth','%')";
-        ()">
-        <label for="borderWidth">Border width in pixels</label>
-        <input id="borderWidth" name="borderWidth" type="number" min="1" value="3" onchange="tableGenartor.setBoder()"> <br />
-        <label for="tableBackground">Table background color</label>
-        <input id="tableBackground" name="tableBackground" type="color" value="#ffff00" onchange="tableGenartor.setStyle('table','background','#tableBackground','')";
-        ()">
-        <label for="headerBackground">Head background color</label>
-        <input id="headerBackground" name="headerBackground" type="color" value="#0000ff" onchange="tableGenartor.setStyle('tHead','background','#headerBackground','')";
-        ()">
-        <label for="bodyBackground">Body background color</label>
-        <input id="bodyBackground" name="bodyBackground" type="color" value="#333333" onchange="tableGenartor.setStyle('body','background','#bodyBackground','')"> <br />
-        <label for="borderColor">Border color</label>
-        <input id="borderColor" name="borderColor" type="color" value="#ff0000" onchange="tableGenartor.setBoder()"> 
-        <label for="fontColor">Font color</label> 
-        <input id="fontColor" name="fontColor" type="color" value="#990099" onchange="tableGenartor.setStyle('tBody','color','#fontColor','')";
-        ()"> <br />
-        <label for="fontType">Font type</label>
-        <select id="fontType" name="fontType" onchange="tableGenartor.setStyle('tBody','font-family','#fontType','')"></select>
-        <select id="fontWeight" name="fontWeight">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-        </select>
-        <label for="textAlign">Text Align</label>
-        <select id="textAlign" name="textAlign">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-        </select>
-        <button onclick="tableGenartor.renderTable()">Generate</button>
+        <div class="flex-container">
+        <div>
+                <label class="flex-item" for="rows">Number of rows</label>
+                <input class="flex-item" id="rows" name="rows" type="number" min="1" value="3">
+                <label class="flex-item" for="columns">Number of columns</label>
+                <input class="flex-item" id="columns" name="columns" type="number" min="1" value="3">
+        </div>
+
+        <div>
+         <label class="flex-item" for="tableWidth">Table width in percent</label>
+         <input class="flex-item" id="tableWidth" name="tableWidth" type="number" min="1" value="60" onchange="setStyle('table','width','#tableWidth','%')">
+        <label class="flex-item" for="borderWidth">Border width in pixels</label>
+        <input class="flex-item" id="borderWidth" name="borderWidth" type="number" min="0" value="3" onchange="setBoder()"> 
+        </div>
+
+        <div>
+        <label class="flex-item" for="tableBackground">Table background color</label>
+        <input class="flex-item" id="tableBackground" name="tableBackground" type="color" value="#ffff00" onchange="setStyle('table','background','#tableBackground','')">
+        <label class="flex-item" for="headerBackground">Head background color</label>
+        <input class="flex-item" id="headerBackground" name="headerBackground" type="color" value="#0000ff" onchange="setStyle('tHead','background','#headerBackground','')">
+        <label class="flex-item" for="bodyBackground">Body background color</label>
+        <input class="flex-item" id="bodyBackground" name="bodyBackground" type="color" value="#333333" onchange="setStyle('body','background','#bodyBackground','')"> 
+             
+        </div>
+       
+        <div style=" width: 60%">
+        <label class="flex-item" for="borderColor">Border color</label>
+        <input class="flex-item" id="borderColor" name="borderColor" type="color" value="#ff0000" onchange="setBoder()"> 
+        <label class="flex-item" for="fontColor">Font color</label> 
+        <input class="flex-item" id="fontColor" name="fontColor" type="color" value="#990099" onchange="setStyle('tBody','color','#fontColor','')"> 
+        </div>
+
+        <div>
+        <label class="flex-item" for="fontType">Font type</label>
+        <select class="flex-item" id="fontType" name="fontType" onchange="setStyle('tBody','fontFamily','#fontType','')"></select>
+        <select class="flex-item" id="fontWeight" name="fontWeight" onchange="setStyle('tBody','fontWeight','#fontWeight','')"></select>
+        <label class="flex-item" for="textAlign" >Text Align</label>
+        <select class="flex-item" id="textAlign" name="textAlign" onchange="setStyle('tBody','textAlign','#textAlign','')"></select>
+        <button class="flex-item" id="generator" onclick="renderTable()">Generate</button>
+        </div>              
+                
+        </div>      
     </div>    
     <div id="tableContainer"></div>
-    <script src="./JS/main.Js"></script>
+    <script src="./JS/from.js"></script>    
     <script src="./JS/table.js"></script>
+    <script src="./JS/main.Js"></script>    
 </body>
 </html>

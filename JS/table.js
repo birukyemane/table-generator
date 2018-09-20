@@ -1,22 +1,21 @@
-// returns html code of the table generated 
-function createTable(rows,columns){  
-  //let tableStyle = `"width:${styles.tableWidth}% ; border:${styles.borderWidth}px solid 
-   //                 ${styles.borderColor}; border-collapse:collapse; background:${styles.tableBackground}"`;
-  return `<table> <thead> ${createHeaders(columns)} </thead> <tbody> ${createRows(rows,columns)}  </tbody>  </table>`; // add rows to the table
+// generates the table based on the number of rows and columns
+
+function table(noOfRows,noOfcolumns){  
+  return `<table> <thead> ${headers(noOfcolumns)}</thead> <tbody>${rows(noOfRows,noOfcolumns)}</tbody> </table>`; 
 }
 
-function createHeaders(columns){
+function headers(noOfcolumns){
   let header = '';
-  for(let i=1;i <= columns;i++){
+  for(let i=1;i <= noOfcolumns;i++){
     header += `<th>Head${i}</th>`;
   }
   return `<tr">${header}</tr>`;  
 }
 
-function createRows(rows,columns){
-  return  `<tr> ${createCells(columns)}</tr>`.repeat(Number(rows)); 
+function rows(noOfRows,noOfcolumns){
+  return  `<tr> ${cells(noOfcolumns)}</tr>`.repeat(Number(noOfRows)); 
 }
 
-function createCells(columns){
-  return `<td>value</td>`.repeat(Number(columns)); 
+function cells(noOfcolumns){
+  return `<td>value</td>`.repeat(Number(noOfcolumns)); 
 }
